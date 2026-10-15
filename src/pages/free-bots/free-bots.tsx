@@ -104,9 +104,6 @@ const FreeBots = () => {
                 <h2 className='free-bots__title'>
                     <Localize i18n_default_text='Free Bots' />
                 </h2>
-                <p className='free-bots__subtitle'>
-                    <Localize i18n_default_text='Choose a strategy, load it into Bot Builder, then configure and run.' />
-                </p>
             </header>
 
             {FREE_BOTS.length === 0 ? (
@@ -134,7 +131,6 @@ const FreeBots = () => {
                                     <h3 className='free-bots__card-title'>{bot.title}</h3>
                                 </div>
 
-                                <p className='free-bots__card-desc'>{bot.description}</p>
 
                                 {!!bot.tags?.length && (
                                     <ul className='free-bots__tags' aria-label={localize('Tags')}>
