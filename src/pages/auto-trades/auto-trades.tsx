@@ -3269,26 +3269,6 @@ const AutoTrades = observer(() => {
                                 </div>
 
                                 <div className='auto-trades-controls'>
-                                    <button
-                                        className={classNames('auto-trades-controls__ai', {
-                                            'auto-trades-controls__ai--dragging': isAiFabDragging,
-                                        })}
-                                        onClick={handleAiFabClick}
-                                        onPointerDown={handleAiFabPointerDown}
-                                        onPointerMove={handleAiFabPointerMove}
-                                        onPointerUp={finishAiFabDrag}
-                                        onPointerCancel={finishAiFabDrag}
-                                        disabled={isRunning}
-                                        type='button'
-                                        title='AI strategy setup'
-                                        style={aiFabStyle}
-                                    >
-                                        <span className='auto-trades-controls__ai-orbit'>
-                                            <span className='auto-trades-controls__ai-text'>AI</span>
-                                            <span className='auto-trades-controls__ai-dot' />
-                                        </span>
-                                        <span className='auto-trades-controls__ai-label'>Ai</span>
-                                    </button>
                                     {!isRunning ? (
                                         <button
                                             className='auto-trades-controls__run'
