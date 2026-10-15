@@ -26,6 +26,7 @@ const TAB_HASHES = new Set([
     'free_bots',
     'auto_trades',
     'tradingview',
+    'ai_scanner',
 ]);
 
 const redirectInitialTabHashToMainUrl = () => {
