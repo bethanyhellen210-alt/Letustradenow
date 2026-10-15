@@ -85,7 +85,7 @@ const AppWrapper = observer(() => {
     const { clear } = summary_card;
     const { DASHBOARD, BOT_BUILDER } = DBOT_TABS;
     const init_render = React.useRef(true);
-    const hash = ['dashboard', 'bot_builder', 'chart', 'analysis', 'tutorial', 'free_bots', 'auto_trades', 'tradingview'];
+    const hash = ['dashboard', 'bot_builder', 'chart', 'analysis', 'tutorial', 'free_bots', 'auto_trades', 'tradingview', 'ai_scanner'];
     const { isDesktop } = useDevice();
     const location = useLocation();
     const navigate = useNavigate();
