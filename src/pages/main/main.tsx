@@ -5,7 +5,6 @@ import { observer } from 'mobx-react-lite';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ChunkLoader from '@/components/loader/chunk-loader';
 import FeatureErrorBoundary from '@/components/feature-error-boundary';
-import SpeedBotOverlay from '@/components/speedbot-overlay';
 import { generateOAuthURL } from '@/components/shared';
 import DesktopWrapper from '@/components/shared_ui/desktop-wrapper';
 import Dialog from '@/components/shared_ui/dialog';
@@ -516,7 +515,6 @@ const AppWrapper = observer(() => {
                     </div>
                 </div>
             </div>
-            <SpeedBotOverlay />
             <DesktopWrapper>
                 <div className='main__run-strategy-wrapper'>
                     <RunStrategy />
