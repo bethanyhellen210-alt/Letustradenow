@@ -5,6 +5,7 @@ import { observer } from 'mobx-react-lite';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ChunkLoader from '@/components/loader/chunk-loader';
 import FeatureErrorBoundary from '@/components/feature-error-boundary';
+import SpeedBotOverlay from '@/components/speedbot-overlay';
 import { generateOAuthURL } from '@/components/shared';
 import DesktopWrapper from '@/components/shared_ui/desktop-wrapper';
 import Dialog from '@/components/shared_ui/dialog';
@@ -53,7 +54,6 @@ const Analysis = lazy(() => import('../analysis'));
 const FreeBots = lazy(() => import('../free-bots'));
 const AutoTrades = lazy(() => import('../auto-trades'));
 const TradingViewPage = lazy(() => import('../tradingview'));
-const AiScanner = lazy(() => import('../ai-scanner'));
 
 const AppWrapper = observer(() => {
     const { connectionStatus } = useApiBase();
@@ -86,7 +86,7 @@ const AppWrapper = observer(() => {
     const { clear } = summary_card;
     const { DASHBOARD, BOT_BUILDER } = DBOT_TABS;
     const init_render = React.useRef(true);
-    const hash = ['dashboard', 'bot_builder', 'chart', 'analysis', 'tutorial', 'free_bots', 'auto_trades', 'tradingview', 'ai_scanner'];
+    const hash = ['dashboard', 'bot_builder', 'chart', 'analysis', 'tutorial', 'free_bots', 'auto_trades', 'tradingview'];
     const { isDesktop } = useDevice();
     const location = useLocation();
     const navigate = useNavigate();
@@ -511,16 +511,12 @@ const AppWrapper = observer(() => {
                                     <TradingViewPage />
                                 </Suspense>
                             </div>
-                            <div label={<Localize i18n_default_text='AI Scanner' />} id='id-ai-scanner'>
-                                <Suspense fallback={<ChunkLoader message={localize('Loading AI Scanner...')} />}>
-                                    <AiScanner />
-                                </Suspense>
-                            </div>
                         </Tabs>
                         {!isDesktop && right_tab_shadow && <span className='tabs-shadow tabs-shadow--right' />}{' '}
                     </div>
                 </div>
             </div>
+            <SpeedBotOverlay />
             <DesktopWrapper>
                 <div className='main__run-strategy-wrapper'>
                     <RunStrategy />
