@@ -29,11 +29,7 @@ const sameSelection = (left: TradeMarketSelection, right: TradeMarketSelection) 
     left.options.length === right.options.length &&
     left.options.every((option, index) => option.value === right.options[index]?.value);
 
-type DigitPanelProps = {
-    onClose: () => void;
-};
-
-const DigitPanel = ({ onClose }: DigitPanelProps) => {
+const DigitPanel = () => {
     const [tickSampleSize, setTickSampleSize] = useState(DEFAULT_DIGIT_TICKS);
     const [trade, setTrade] = useState<TradeMarketSelection>(() => readTradeMarket());
     const { error, selectedSymbol, selectedSymbolInfo, setSelectedSymbol, status, ticks } = useAnalysisMarketData();
@@ -91,9 +87,6 @@ const DigitPanel = ({ onClose }: DigitPanelProps) => {
                             ))}
                         </select>
                     </label>
-                    <button className='digit-panel__close' type='button' aria-label={localize('Close')} onClick={onClose}>
-                        ×
-                    </button>
                 </div>
             </header>
 
