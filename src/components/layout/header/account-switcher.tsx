@@ -8,6 +8,9 @@ import { useApiBase } from '@/hooks/useApiBase';
 import { useStore } from '@/hooks/useStore';
 import { isDemoAccount } from '@/utils/account-helpers';
 import { Localize } from '@deriv-com/translations';
+import { TAccountSwitcher } from './common/types';
+import AccountInfoWrapper from './account-info-wrapper';
+import './account-switcher.scss';
 
 const DISPLAY_CURRENCIES = ['USD', 'KES'] as const;
 type DisplayCurrency = (typeof DISPLAY_CURRENCIES)[number];
@@ -26,9 +29,6 @@ const formatAccountBalance = (amount: number | string, sourceCurrency: string, d
     const formatted = addComma(converted.toFixed(2));
     return displayCurrency === 'KES' ? `KSh ${formatted}` : `USD ${formatted}`;
 }
-import { TAccountSwitcher } from './common/types';
-import AccountInfoWrapper from './account-info-wrapper';
-import './account-switcher.scss';
 
 const AccountSwitcher = observer(({ activeAccount }: TAccountSwitcher) => {
     const [isOpen, setIsOpen] = useState(false);
