@@ -84,6 +84,7 @@
     }
 
     &__close {
+        display: none !important;
         align-items: center;
         background: #2a334c;
         border: 0;
@@ -365,7 +366,50 @@
         height: 100%;
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 600px) {
+        border-radius: 1rem;
+
+        &__header {
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 1.2rem;
+        }
+
+        &__title {
+            font-size: 1.7rem;
+            overflow-wrap: anywhere;
+        }
+
+        &__header-actions {
+            max-width: 100%;
+        }
+
+        &__ticks {
+            max-width: 100%;
+        }
+
+        &__body {
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        &__grid {
+            gap: 1rem 0.2rem;
+        }
+
+        &__bubble {
+            height: clamp(3.6rem, 14vw, 5.2rem);
+            width: clamp(3.6rem, 14vw, 5.2rem);
+        }
+
+        &__digit {
+            font-size: 1.5rem;
+        }
+
+        &__percent {
+            font-size: 0.95rem;
+        }
+
         &__summary {
             grid-template-columns: 1fr;
         }
@@ -387,11 +431,12 @@
     z-index: 4;
 }
 
-.digit-panel-page {
+ .digit-panel-page {
     background: #eef2f6;
     display: flex;
     height: var(--tab-content-height);
     justify-content: center;
+    min-width: 0;
     overflow: auto;
     padding: 2.4rem 1.6rem 4rem;
 
@@ -410,6 +455,15 @@
     }
 
     .digit-panel-page {
+        box-sizing: border-box;
         height: var(--tab-content-height-mobile);
+        justify-content: flex-start;
+        padding: 1rem 0.8rem 5rem;
+        width: 100%;
+
+        .digit-panel {
+            max-width: 100%;
+            min-width: 0;
+        }
     }
 }
