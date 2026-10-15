@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { observer } from 'mobx-react-lite';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ChunkLoader from '@/components/loader/chunk-loader';
+import FeatureErrorBoundary from '@/components/feature-error-boundary';
 import { generateOAuthURL } from '@/components/shared';
 import DesktopWrapper from '@/components/shared_ui/desktop-wrapper';
 import Dialog from '@/components/shared_ui/dialog';
@@ -499,9 +500,11 @@ const AppWrapper = observer(() => {
                                 </Suspense>
                             </div>
                             <div label={<Localize i18n_default_text='Auto Trades' />} id='id-auto-trades'>
-                                <Suspense fallback={<ChunkLoader message={localize('Loading Auto Trades...')} />}>
-                                    <AutoTrades />
-                                </Suspense>
+                                <FeatureErrorBoundary featureName='Auto Trades'>
+                                    <Suspense fallback={<ChunkLoader message={localize('Loading Auto Trades...')} />}>
+                                        <AutoTrades />
+                                    </Suspense>
+                                </FeatureErrorBoundary>
                             </div>
                             <div label={<Localize i18n_default_text='Trading View' />} id='id-trading-view-page'>
                                 <Suspense fallback={<ChunkLoader message={localize('Loading Trading View...')} />}>
