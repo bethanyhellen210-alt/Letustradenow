@@ -52,6 +52,7 @@ const Analysis = lazy(() => import('../analysis'));
 const FreeBots = lazy(() => import('../free-bots'));
 const AutoTrades = lazy(() => import('../auto-trades'));
 const TradingViewPage = lazy(() => import('../tradingview'));
+const AiScanner = lazy(() => import('../ai-scanner'));
 
 const AppWrapper = observer(() => {
     const { connectionStatus } = useApiBase();
