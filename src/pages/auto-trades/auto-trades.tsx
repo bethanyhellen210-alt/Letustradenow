@@ -1036,8 +1036,9 @@ const appendPercentageQuote = (
 
 const AutoTrades = observer(() => {
     const { dashboard, client, run_panel, summary_card, transactions } = useStore();
-    const { currency } = client;
-    const { active_tab } = dashboard;
+    // Keep the page renderable while account metadata is still hydrating.
+    const currency = client?.currency ?? 'USD';
+    const active_tab = dashboard?.active_tab;
 
     const VALID_TRADE_TYPES: TradeType[] = [
         'DIGITOVER',
