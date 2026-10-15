@@ -508,6 +508,11 @@ const AppWrapper = observer(() => {
                                     <TradingViewPage />
                                 </Suspense>
                             </div>
+                            <div label={<Localize i18n_default_text='AI Scanner' />} id='id-ai-scanner'>
+                                <Suspense fallback={<ChunkLoader message={localize('Loading AI Scanner...')} />}>
+                                    <AiScanner />
+                                </Suspense>
+                            </div>
                         </Tabs>
                         {!isDesktop && right_tab_shadow && <span className='tabs-shadow tabs-shadow--right' />}{' '}
                     </div>
