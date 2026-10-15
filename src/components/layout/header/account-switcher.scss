@@ -786,3 +786,66 @@
         }
     }
 }
+
+
+/* Display-only currency selector for the live Deriv account balance. */
+.acc-info__currency-switcher {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+    margin-right: 0.5rem;
+}
+
+.acc-info__currency-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2.6rem;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid var(--border-normal, #bfc2c7);
+    border-radius: 0.5rem;
+    background: var(--general-main-2, #fff);
+    color: var(--text-general, #222);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.acc-info__currency-menu {
+    position: absolute;
+    z-index: 20;
+    top: calc(100% + 0.4rem);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 13rem;
+    padding: 0.35rem;
+    border: 1px solid var(--border-normal, #bfc2c7);
+    border-radius: 0.6rem;
+    background: var(--general-main-2, #fff);
+    box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 15%);
+}
+
+.acc-info__currency-option {
+    padding: 0.7rem 0.8rem;
+    border: 0;
+    border-radius: 0.35rem;
+    background: transparent;
+    color: var(--text-general, #222);
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.acc-info__currency-option:hover,
+.acc-info__currency-option--active {
+    background: var(--state-hover, #f0f0f0);
+    font-weight: 700;
+}
+
+@media (max-width: 767px) {
+    .acc-info__currency-switcher { margin-right: 0.25rem; }
+    .acc-info__currency-button { min-height: 2.3rem; padding: 0.25rem 0.45rem; }
+    .acc-info__currency-menu { left: auto; right: 0; }
+}
