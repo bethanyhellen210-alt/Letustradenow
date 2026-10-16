@@ -32,3 +32,54 @@
     touch-action: none;
     overflow: hidden;
 }
+
+
+/* Responsive workspace containment: keep Blockly inside the app viewport. */
+#scratch_div,
+.bot-builder,
+.bot-builder .injectionDiv {
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+}
+
+#scratch_div {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.bot-builder {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.bot-builder .injectionDiv {
+    width: 100%;
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    #scratch_div {
+        width: 100%;
+        max-width: 100vw;
+        height: var(--tab-content-height-mobile, var(--bot-content-height));
+        overflow-x: auto;
+        overflow-y: hidden;
+        overscroll-behavior-x: contain;
+    }
+
+    .bot-builder {
+        inset-inline-start: 0;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .bot-builder .injectionDiv {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+    }
+}
