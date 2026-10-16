@@ -114,7 +114,7 @@ const Transactions = observer(({ is_drawer_open }: TTransactions) => {
                     }}
                     secondary
                 >
-                    <Localize i18n_default_text='View Detail' />
+                    <Localize i18n_default_text='Transaction View' />
                 </Button>
             </div>
             <div className='transactions__header'>
