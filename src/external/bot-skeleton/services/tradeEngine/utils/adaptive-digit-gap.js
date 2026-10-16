@@ -234,9 +234,9 @@ const scheduleConfirmedGap = (state, digit_state, gap, options) => {
  *
  * @param {ReturnType<typeof createTrackerState>} state
  * @param {number} digit
- * @param {ReturnType<typeof normalizeAdaptiveGapOptions>} [options]
+ * @param {Partial<ReturnType<typeof normalizeAdaptiveGapOptions>>} [options]
  */
-export const processDigitTick = (state, digit, options = normalizeAdaptiveGapOptions()) => {
+export const processDigitTick = (state, digit, options = {}) => {
     const d = Number(digit);
     if (!Number.isInteger(d) || d < 0 || d > 9) {
         return;

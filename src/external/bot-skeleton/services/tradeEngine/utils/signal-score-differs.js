@@ -466,7 +466,7 @@ const formatDigitJournal = (entry, options) => {
 /**
  * @param {ReturnType<typeof createTrackerState>} state
  * @param {number} digit
- * @param {ReturnType<typeof normalizeSignalScoreOptions>} options
+ * @param {Partial<ReturnType<typeof normalizeSignalScoreOptions>>} options
  */
 export const processDigitTick = (state, digit, options) => {
     const d = Number(digit);
