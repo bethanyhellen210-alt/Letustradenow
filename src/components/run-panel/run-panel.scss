@@ -451,3 +451,88 @@
         }
     }
 }
+
+
+/* Mobile Run Panel: keep the handle visible at the bottom and open Summary,
+ * Transactions, and Journal as a full-width bottom sheet above the run controls. */
+@include mobile-or-tablet-screen {
+    .dc-drawer.run-panel {
+        position: fixed !important;
+        top: auto !important;
+        right: 0 !important;
+        bottom: calc(6rem + env(safe-area-inset-bottom, 0px)) !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: min(72dvh, calc(100dvh - 12rem - env(safe-area-inset-bottom, 0px))) !important;
+        max-height: calc(100dvh - 12rem - env(safe-area-inset-bottom, 0px)) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        box-sizing: border-box;
+        background: var(--general-main-1);
+        box-shadow: 0 -8px 24px rgb(0 0 0 / 14%);
+        transform: translateY(calc(100% - 3.6rem)) !important;
+        transition: transform 0.24s ease !important;
+        z-index: var(--zindex-drawer, 100) !important;
+        pointer-events: auto;
+    }
+
+    .dc-drawer.run-panel.dc-drawer--open {
+        transform: translateY(0) !important;
+    }
+
+    .dc-drawer.run-panel .dc-drawer__toggle {
+        position: relative !important;
+        inset: auto !important;
+        flex: 0 0 3.6rem;
+        width: 100% !important;
+        min-width: 100% !important;
+        height: 3.6rem !important;
+        min-height: 3.6rem !important;
+        justify-content: center;
+        border-top: 1px solid var(--general-section-1);
+        border-bottom: 1px solid var(--general-section-1);
+        background: var(--general-main-1);
+        touch-action: manipulation;
+    }
+
+    .dc-drawer.run-panel .dc-drawer__container {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        width: 100% !important;
+        height: calc(100% - 3.6rem) !important;
+        min-height: 0;
+        padding: 0 !important;
+        overflow: hidden;
+    }
+
+    .dc-drawer.run-panel .run-panel__content {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden !important;
+    }
+
+    .dc-drawer.run-panel .run-panel__content .dc-tabs {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    .dc-drawer.run-panel .run-panel__content .dc-tabs__content {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-x: hidden;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .dc-drawer.run-panel .run-panel__stat--mobile {
+        position: static !important;
+        flex: 0 0 auto;
+        width: 100% !important;
+        padding-bottom: 0 !important;
+    }
+}
