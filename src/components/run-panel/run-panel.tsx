@@ -314,7 +314,7 @@ const RunPanel = observer(() => {
     const show_run_panel =
         [DASHBOARD, BOT_BUILDER, CHART, ANALYSIS, TUTORIAL, FREE_BOTS].includes(active_tab) ||
         active_tour;
-    if ((!show_run_panel && isDesktop) || active_tour === 'bot_builder') return null;
+    if (!show_run_panel && isDesktop) return null;
 
     return (
         <>
