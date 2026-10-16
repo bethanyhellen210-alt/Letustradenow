@@ -14,6 +14,7 @@ import {
     LabelPairedObjectsAlignLeftMdRegularIcon,
 } from '@deriv/quill-icons/LabelPaired';
 import { localize } from '@deriv-com/translations';
+import { DBOT_TABS } from '@/constants/bot-contents';
 import { useDevice } from '@deriv-com/ui';
 /* [AI] - Analytics event tracking removed - see migrate-docs/MONITORING_PACKAGES.md for re-implementation guide */
 /* [/AI] */
@@ -26,7 +27,7 @@ type WorkspaceGroupProps = {
 
 const WorkspaceGroup = observer(({ is_digit_open, onToggleDigit }: WorkspaceGroupProps) => {
     const { dashboard, toolbar, load_modal, save_modal } = useStore();
-    const { setPreviewOnPopup, setChartModalVisibility, setTradingViewModalVisibility } = dashboard;
+    const { setPreviewOnPopup, setChartModalVisibility, setTradingViewModalVisibility, setActiveTab } = dashboard;
     const { has_redo_stack, has_undo_stack, onResetClick, onSortClick, onUndoClick, onZoomInOutClick } = toolbar;
     const { toggleSaveModal } = save_modal;
     const { toggleLoadModal } = load_modal;
@@ -76,6 +77,28 @@ const WorkspaceGroup = observer(({ is_digit_open, onToggleDigit }: WorkspaceGrou
                             onClick={toggleSaveModal}
                         >
                             <LabelPairedFloppyDiskMdRegularIcon />
+                        </span>
+                    }
+                />
+                <ToolbarIcon
+                    popover_message={localize('Pro Analysis')}
+                    icon={
+                        <span
+                            className='toolbar__icon'
+                            id='db-toolbar__pro-analysis-button'
+                            data-testid='dt_toolbar_pro_analysis_button'
+                            role='button'
+                            tabIndex={0}
+                            aria-label={localize('Pro Analysis')}
+                            onClick={() => setActiveTab(DBOT_TABS.ANALYSIS)}
+                            onKeyDown={event => {
+                                if (event.key === 'Enter' || event.key === ' ') {
+                                    event.preventDefault();
+                                    setActiveTab(DBOT_TABS.ANALYSIS);
+                                }
+                            }}
+                        >
+                            <LabelPairedChartLineMdRegularIcon />
                         </span>
                     }
                 />
